@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>macOS Desktop Recreation</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <div class="menu-bar">
+      <div class="menu-bar-left">
+        <span>&#63743;</span> <span>Finder</span>
+        <span>File</span>
+        <span>Edit</span>
+        <span>View</span>
+      </div>
+      <div class="menu-bar-right">
+        <span>100%</span>
+        <span
+          ><img
+            src="https://img.icons8.com/sf-regular/48/full-battery.png"
+            alt="battery"
+        /></span>
+        <span id="current-time">Thu Nov 13 4:46 AM</span>
+      </div>
+    </div>
+
+    <!-- Settings Window -->
+    <div class="settings-window" id="settingsWindow">
+      <div class="window-titlebar">
+        <div class="window-controls">
+          <div class="window-control close" onclick="closeSettings()"></div>
+          <div class="window-control minimize"></div>
+          <div class="window-control maximize"></div>
+        </div>
+        <div class="window-title">System Settings</div>
+        <div style="width: 52px"></div>
+      </div>
+
+      <div class="settings-content">
+        <!-- Left Sidebar -->
+        <div class="settings-left-sidebar">
+          <div class="search-box">
+            <input type="text" placeholder="Search" id="settingsSearch" />
+          </div>
+
+          <!-- Apple ID Section -->
+          <div class="apple-id-section">
+            <div class="apple-id-avatar">👤</div>
+            <div class="apple-id-info">
+              <div class="apple-id-name">Olivia Hess</div>
+              <div class="apple-id-label">Apple ID</div>
+            </div>
+          </div>
+
+          <!-- Notifications Section -->
+          <div class="notifications-section">
+            <div class="notification-item">
+              <div class="notification-badge">1</div>
+              <span>Start Using iCloud</span>
+            </div>
+            <div class="notification-item">
+              <div class="notification-badge">1</div>
+              <span>Software Update Available</span>
+            </div>
+          </div>
+
+          <!-- Settings Categories -->
+          <div class="settings-categories">
+            <div class="settings-item" data-section="wifi">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #4a9ff5, #2e7bc4)"
+              >
+                📶
+              </div>
+              <span>Wi-Fi</span>
+            </div>
+
+            <div class="settings-item" data-section="bluetooth">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #4a9ff5, #2e7bc4)"
+              >
+                📱
+              </div>
+              <span>Bluetooth</span>
+            </div>
+
+            <div class="settings-item" data-section="network">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #4a9ff5, #2e7bc4)"
+              >
+                🌐
+              </div>
+              <span>Network</span>
+            </div>
+
+            <div class="settings-item" data-section="notifications">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #ff3b30, #d32f2f)"
+              >
+                🔔
+              </div>
+              <span>Notifications</span>
+            </div>
+
+            <div class="settings-item" data-section="sound">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #ff3b30, #d32f2f)"
+              >
+                🔊
+              </div>
+              <span>Sound</span>
+            </div>
+
+            <div class="settings-item" data-section="focus">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #af52de, #8e44ad)"
+              >
+                🌙
+              </div>
+              <span>Focus</span>
+            </div>
+
+            <div class="settings-item" data-section="screentime">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #af52de, #8e44ad)"
+              >
+                ⏱️
+              </div>
+              <span>Screen Time</span>
+            </div>
+
+            <div class="settings-item active" data-section="general">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #6b6b6b, #555)"
+              >
+                ⚙️
+              </div>
+              <span>General</span>
+            </div>
+
+            <div class="settings-item" data-section="appearance">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #333, #222)"
+              >
+                🎨
+              </div>
+              <span>Appearance</span>
+            </div>
+
+            <div class="settings-item" data-section="accessibility">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #4a9ff5, #2e7bc4)"
+              >
+                ♿
+              </div>
+              <span>Accessibility</span>
+            </div>
+
+            <div class="settings-item" data-section="control-center">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #555, #444)"
+              >
+                🎛️
+              </div>
+              <span>Control Center</span>
+            </div>
+
+            <div class="settings-item" data-section="siri">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #ff9500, #ff6b00)"
+              >
+                🔍
+              </div>
+              <span>Siri & Spotlight</span>
+            </div>
+
+            <div class="settings-item" data-section="privacy">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #4a9ff5, #2e7bc4)"
+              >
+                🛡️
+              </div>
+              <span>Privacy & Security</span>
+            </div>
+
+            <div class="settings-item" data-section="desktop">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #555, #444)"
+              >
+                💻
+              </div>
+              <span>Desktop & Dock</span>
+            </div>
+
+            <div class="settings-item" data-section="displays">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #4a9ff5, #2e7bc4)"
+              >
+                🖥️
+              </div>
+              <span>Displays</span>
+            </div>
+
+            <div class="settings-item" data-section="screensaver">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #5ac8fa, #3a9fc5)"
+              >
+                🖼️
+              </div>
+              <span>Screen Saver</span>
+            </div>
+
+            <div class="settings-item" data-section="wallpaper">
+              <div
+                class="settings-item-icon"
+                style="background: linear-gradient(145deg, #5ac8fa, #3a9fc5)"
+              >
+                🌄
+              </div>
+              <span>Wallpaper</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Content Pane -->
+        <div class="settings-main" id="settingsMain">
+          <div class="settings-header">
+            <div
+              class="settings-header-icon"
+              style="background: linear-gradient(145deg, #6b6b6b, #555)"
+            >
+              ⚙️
+            </div>
+            <h1>General</h1>
+          </div>
+
+          <!-- General Settings Content -->
+          <div class="settings-section" id="generalContent">
+            <div class="general-setting-item">
+              <div class="general-setting-icon">🖥️</div>
+              <div class="general-setting-content">
+                <div class="general-setting-title">About</div>
+              </div>
+              <div class="general-setting-arrow">›</div>
+            </div>
+
+            <div class="general-setting-item">
+              <div class="general-setting-icon">⚙️</div>
+              <div class="general-setting-content">
+                <div class="general-setting-title">Software Update</div>
+              </div>
+              <div class="general-setting-arrow">›</div>
+            </div>
+
+            <div class="general-setting-item">
+              <div class="general-setting-icon">💾</div>
+              <div class="general-setting-content">
+                <div class="general-setting-title">Storage</div>
+              </div>
+              <div class="general-setting-arrow">›</div>
+            </div>
+
+            <div class="general-setting-item">
+              <div class="general-setting-icon">📡</div>
+              <div class="general-setting-content">
+                <div class="general-setting-title">AirDrop & Handoff</div>
+              </div>
+              <div class="general-setting-arrow">›</div>
+            </div>
+
+            <div class="general-setting-item">
+              <div class="general-setting-icon">📋</div>
+              <div class="general-setting-content">
+                <div class="general-setting-title">Login Items</div>
+              </div>
+              <div class="general-setting-arrow">›</div>
+            </div>
+
+            <div class="general-setting-item">
+              <div class="general-setting-icon">🍎</div>
+              <div class="general-setting-content">
+                <div class="general-setting-title">AppleCare & Warranty</div>
+              </div>
+              <div class="general-setting-arrow">›</div>
+            </div>
+
+            <div class="general-setting-item">
+              <div class="general-setting-icon">🌍</div>
+              <div class="general-setting-content">
+                <div class="general-setting-title">Language & Region</div>
+              </div>
+              <div class="general-setting-arrow">›</div>
+            </div>
+
+            <div class="general-setting-item">
+              <div class="general-setting-icon">📅</div>
+              <div class="general-setting-content">
+                <div class="general-setting-title">Date & Time</div>
+              </div>
+              <div class="general-setting-arrow">›</div>
+            </div>
+
+            <div class="general-setting-item">
+              <div class="general-setting-icon">👥</div>
+              <div class="general-setting-content">
+                <div class="general-setting-title">Sharing</div>
+              </div>
+              <div class="general-setting-arrow">›</div>
+            </div>
+
+            <div class="general-setting-item">
+              <div class="general-setting-icon">⏰</div>
+              <div class="general-setting-content">
+                <div class="general-setting-title">Time Machine</div>
+              </div>
+              <div class="general-setting-arrow">›</div>
+            </div>
+
+            <div class="general-setting-item">
+              <div class="general-setting-icon">🔄</div>
+              <div class="general-setting-content">
+                <div class="general-setting-title">Transfer or Reset</div>
+              </div>
+              <div class="general-setting-arrow">›</div>
+            </div>
+
+            <div class="general-setting-item">
+              <div class="general-setting-icon">💿</div>
+              <div class="general-setting-content">
+                <div class="general-setting-title">Startup Disk</div>
+              </div>
+              <div class="general-setting-arrow">›</div>
+            </div>
+          </div>
+
+          <!-- Wallpaper Settings Content (Hidden by default) -->
+          <div
+            class="settings-section"
+            id="wallpaperContent"
+            style="display: none"
+          >
+            <div class="settings-section">
+              <h2>Wallpaper Mode</h2>
+
+              <div class="wallpaper-option">
+                <label>
+                  <input
+                    type="radio"
+                    name="wallpaper-mode"
+                    value="dynamic"
+                    id="dynamicMode"
+                    checked
+                  />
+                  <span>Dynamic (Changes with time of day)</span>
+                </label>
+              </div>
+
+              <div class="wallpaper-option">
+                <label>
+                  <input
+                    type="radio"
+                    name="wallpaper-mode"
+                    value="light"
+                    id="lightMode"
+                  />
+                  <span>Light (Always use light wallpaper)</span>
+                </label>
+              </div>
+
+              <div class="wallpaper-option">
+                <label>
+                  <input
+                    type="radio"
+                    name="wallpaper-mode"
+                    value="dark"
+                    id="darkMode"
+                  />
+                  <span>Dark (Always use dark wallpaper)</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="settings-section">
+              <h2>Available Wallpapers</h2>
+              <div class="wallpaper-grid" id="wallpaperGrid"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Area for Files -->
+    <div class="desktop" id="desktop"></div>
+
+    <!-- Terminal Window -->
+    <div class="terminal-window" id="terminalWindow">
+      <div class="terminal-titlebar">
+        <div class="window-controls">
+          <div class="window-control close" onclick="closeTerminal()"></div>
+          <div
+            class="window-control minimize"
+            onclick="minimizeTerminal()"
+          ></div>
+          <div
+            class="window-control maximize"
+            onclick="maximizeTerminal()"
+          ></div>
+        </div>
+        <div class="terminal-title">Terminal</div>
+        <div style="width: 52px"></div>
+      </div>
+      <div class="terminal-body" id="terminalBody"></div>
+    </div>
+
+    <!-- Notes Window -->
+    <div class="notes-window" id="notesWindow">
+      <div class="notes-titlebar">
+        <div class="window-controls">
+          <div class="window-control close" onclick="closeNotesApp()"></div>
+          <div
+            class="window-control minimize"
+            onclick="minimizeNotesApp()"
+          ></div>
+          <div
+            class="window-control maximize"
+            onclick="maximizeNotesApp()"
+          ></div>
+        </div>
+        <div class="notes-title">Notes</div>
+        <div class="notes-toolbar">
+          <button
+            class="notes-toolbar-button"
+            id="notesAddButton"
+            title="New Note"
+          >
+            +
+          </button>
+          <button
+            class="notes-toolbar-button"
+            id="notesDeleteButton"
+            title="Delete Note"
+          >
+            🗑
+          </button>
+        </div>
+      </div>
+      <div class="notes-body">
+        <aside class="notes-sidebar">
+          <div class="notes-sidebar-header">
+            <span class="notes-sidebar-title">iCloud</span>
+          </div>
+          <nav class="notes-sidebar-nav">
+            <button class="notes-sidebar-item active" data-filter="all">
+              <span class="notes-sidebar-icon">🗂</span>
+              <span class="notes-sidebar-label">All iCloud</span>
+              <span class="notes-sidebar-count" id="notesCount">0</span>
+            </button>
+            <button class="notes-sidebar-item" data-filter="notes">
+              <span class="notes-sidebar-icon">📝</span>
+              <span class="notes-sidebar-label">Notes</span>
+            </button>
+            <button class="notes-sidebar-item" data-filter="new">
+              <span class="notes-sidebar-icon">📂</span>
+              <span class="notes-sidebar-label">New Folder</span>
+            </button>
+            <button class="notes-sidebar-item" data-filter="recent">
+              <span class="notes-sidebar-icon">🗑</span>
+              <span class="notes-sidebar-label">Recently Deleted</span>
+            </button>
+          </nav>
+          <div class="notes-list" id="notesList"></div>
+        </aside>
+        <section class="notes-editor">
+          <header class="notes-editor-header">
+            <div class="notes-editor-meta">
+              <span class="notes-editor-updated" id="notesUpdated">—</span>
+            </div>
+          </header>
+          <textarea
+            class="notes-editor-input"
+            id="notesEditor"
+            placeholder="Start typing…"
+          ></textarea>
+        </section>
+      </div>
+    </div>
+
+    <div class="dock">
+      <div class="dock-icon open" title="Finder">
+        <div class="icon-content">
+          <img
+            src="assests/Finder.png"
+            alt="finder"
+            loading="lazy"
+            data-dock-icon="finder"
+          />
+        </div>
+      </div>
+
+      <div class="dock-icon" title="Safari" id="safariIcon">
+        <div class="icon-content">
+          <img
+            src="assests/Safari.png"
+            alt="safari"
+            loading="lazy"
+            data-dock-icon="safari"
+          />
+        </div>
+      </div>
+
+      <div class="dock-icon" title="Mail">
+        <div class="icon-content">
+          <img
+            src="assests/Mail.png"
+            alt="mail"
+            loading="lazy"
+            data-dock-icon="mail"
+          />
+        </div>
+      </div>
+
+      <div class="dock-icon" title="Notes" id="notesIcon">
+        <div class="icon-content">
+          <img
+            src="assests/Notes.png"
+            alt="notes"
+            loading="lazy"
+            data-dock-icon="notes"
+          />
+        </div>
+      </div>
+
+      <div class="dock-icon" title="App Store">
+        <div class="icon-content">
+          <img
+            src="assests/App Store.png"
+            alt="app store"
+            loading="lazy"
+            data-dock-icon="appstore"
+          />
+        </div>
+      </div>
+
+      <div class="dock-icon" title="Terminal" id="terminalIcon">
+        <div class="icon-content">
+          <img
+            src="assests/Terminal.png"
+            alt="terminal"
+            loading="lazy"
+            data-dock-icon="terminal"
+          />
+        </div>
+      </div>
+
+      <div class="dock-icon" title="Preview">
+        <div class="icon-content">
+          <img
+            src="assests/Preview.png"
+            alt="preview"
+            loading="lazy"
+            data-dock-icon="preview"
+          />
+        </div>
+      </div>
+
+      <div class="dock-icon" title="System Settings" id="settingsIcon">
+        <div class="icon-content">
+          <img
+            src="assests/Settings.png"
+            alt="settings"
+            loading="lazy"
+            data-dock-icon="settings"
+          />
+        </div>
+      </div>
+
+      <!-- Divider for Apps section -->
+      <div
+        style="
+          width: 1px;
+          height: 50px;
+          background: rgba(255, 255, 255, 0.3);
+          margin: 0 5px;
+        "
+      ></div>
+
+      <div class="dock-icon" title="Folder">
+        <div class="icon-content">
+          <img
+            src="assests/Folder.png"
+            alt="folder"
+            loading="lazy"
+            data-dock-icon="folder"
+          />
+        </div>
+      </div>
+
+      <div class="dock-icon" title="Trash">
+        <div class="icon-content">
+          <img
+            src="assests/Trash Empty.png"
+            alt="trash"
+            loading="lazy"
+            data-dock-icon="trash"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/fileSystem.js"></script>
+    <script src="scripts/terminal.js"></script>
+    <script src="scripts/notes.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
