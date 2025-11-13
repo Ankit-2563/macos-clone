@@ -3,8 +3,7 @@ const NOTES_STORAGE_KEY = "macosNotes";
 const defaultNote = {
   id: "default-note",
   title: "Kairos Portfolio",
-  body:
-    "Explore our work at Kairos:\nhttps://www.kairosagency.xyz/\n\nFeel free to add your own notes here.",
+  body: "Explore our work at Kairos:\nhttps://www.kairosagency.xyz/\n\nFeel free to add your own notes here.",
   updatedAt: new Date().toISOString(),
 };
 
@@ -33,7 +32,9 @@ const notesApp = {
 
   bindEvents() {
     this.elements.addButton?.addEventListener("click", () => this.createNote());
-    this.elements.deleteButton?.addEventListener("click", () => this.deleteNote());
+    this.elements.deleteButton?.addEventListener("click", () =>
+      this.deleteNote()
+    );
     this.elements.editor?.addEventListener("input", (event) =>
       this.updateCurrentNote(event.target.value)
     );
@@ -88,11 +89,9 @@ const notesApp = {
     const note = this.notes.find((item) => item.id === id);
     if (!note) return;
 
-    this.elements.list
-      .querySelectorAll(".notes-list-item")
-      .forEach((item) => {
-        item.classList.toggle("active", item.dataset.noteId === id);
-      });
+    this.elements.list.querySelectorAll(".notes-list-item").forEach((item) => {
+      item.classList.toggle("active", item.dataset.noteId === id);
+    });
 
     this.elements.editor.value = note.body;
     this.elements.updated.textContent = this.formatDate(note.updatedAt);
@@ -221,4 +220,3 @@ function maximizeNotesApp() {
 document.addEventListener("DOMContentLoaded", () => {
   notesApp.init();
 });
-
